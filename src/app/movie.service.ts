@@ -22,12 +22,12 @@ export class MovieService {
     this.searchResults.push(...response.results);
   }
   async loadMovieList() {
-    let results = await this.api.get(`publicapi/movies`);
+    let results = await this.api.get(`movies`);
     this.myMovieList.length = 0;
     this.myMovieList.push(...results);
   }
   async saveToList(movie) {
-    await this.api.post(`publicapi/movies`,movie);
+    await this.api.post(`movies`,movie);
     this.loadMovieList();
   }
 }

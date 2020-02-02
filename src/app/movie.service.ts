@@ -23,7 +23,8 @@ export class MovieService {
   }
 
   async searchForMovies(searchTerm) {
-    let response = await this.movieApi.get(`search/multi?query=${searchTerm}`);
+    let response = await this.movieApi
+      .get(`search/multi?query=${searchTerm}`);
     this.searchResults.length = 0;
     this.searchResults.push(...response.results);
   }

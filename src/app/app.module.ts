@@ -15,6 +15,17 @@ import { MainComponent } from "./main/main.component";
 import { MovieService } from "./movie.service";
 import { MovieApiService } from "./movie-api.service";
 import { ApiService } from "./api.service";
+import { AuthenticationService } from "./authentication.service";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { AuthInterceptor } from "./auth-interceptor";
+import { SignupLoginComponent } from './signup-login/signup-login.component';
+
+export const httpInterceptorsProviders = [{
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterceptor,
+  multi: true
+}];
+
 
 @NgModule({
   declarations: [
@@ -26,7 +37,8 @@ import { ApiService } from "./api.service";
     HeroButtonComponent,
     ItemComponent,
     ListToggleComponent,
-    MainComponent
+    MainComponent,
+    SignupLoginComponent
   ],
   imports: [
     BrowserModule, 
@@ -37,7 +49,8 @@ import { ApiService } from "./api.service";
   providers: [
     MovieService, 
     MovieApiService, 
-    ApiService
+    ApiService,
+    httpInterceptorsProviders
   ],
 
   bootstrap: [

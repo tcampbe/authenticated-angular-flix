@@ -24,8 +24,8 @@ export class MainComponent implements OnInit {
 
     const response = await this.authService.login(user);
 
-    console.log(response.token);
-
+/*     console.log(response.token);
+ */
   }
 
   async ngOnInit() {

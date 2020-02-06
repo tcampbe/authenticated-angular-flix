@@ -20,7 +20,7 @@ export class MainComponent implements OnInit {
       password: "test1password"
     }
 
-    await this.authService.signup(user);
+    await this.authService.signup();
 
     const response = await this.authService.login(user);
 

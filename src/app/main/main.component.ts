@@ -7,11 +7,29 @@ import { AuthenticationService } from "../authentication.service";
   templateUrl: "./main.component.html",
   styleUrls: ["./main.component.css"]
 })
+
 export class MainComponent implements OnInit {
   
-  constructor(private movieService: MovieService) {}
+  constructor(
+    private movieService: MovieService,
+    private authService: AuthenticationService
+  ){}
 
-  ngOnInit(): void {
+  async authenticate(){
+    const user = {
+      username:"test1",
+      password: "test1password"
+    }
+
+    await this.authService.signup(user);
+
+    const response = await this.authService.login(user);
+
+/*     console.log(response.token);
+ */
+  }
+
+  async ngOnInit() {
     this.myMovieList = this.movieService.getMovieList();
     this.searchResults = this.movieService.getSearchResults();
     this.movieService.loadMovieList();

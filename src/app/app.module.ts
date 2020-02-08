@@ -53,6 +53,7 @@ export const httpInterceptorsProviders = [{
     MovieService, 
     MovieApiService, 
     ApiService,
+    httpInterceptorsProviders,
     {provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true

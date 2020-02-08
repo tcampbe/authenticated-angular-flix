@@ -7,6 +7,7 @@ import { ApiService } from "./api.service";
 })
 
 export class MovieService {
+  
   searchResults = [];
 
   myMovieList = [];

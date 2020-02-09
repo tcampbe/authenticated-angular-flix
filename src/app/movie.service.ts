@@ -12,8 +12,10 @@ export class MovieService {
 
   myMovieList = [];
 
-  constructor(private movieApi: MovieApiService, 
-    private api: ApiService) {}
+  constructor(
+    private movieApi: MovieApiService, 
+    private api: ApiService
+  ) {}
 
   getSearchResults() {
     return this.searchResults;

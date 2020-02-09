@@ -24,9 +24,6 @@ export class ApiService {
       })
     };
 
-        /* is it .post(this.url + path, data, httpOptions)
-            or .post(this.url + path, data, options) */
-
     return await this.httpClient
       .post(this.url + path, data, httpOptions)
       .toPromise();

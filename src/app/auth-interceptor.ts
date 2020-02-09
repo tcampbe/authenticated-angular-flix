@@ -5,6 +5,7 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest}
 import { Observable } from 'rxjs';
 
 @Injectable()
+
 export class AuthInterceptor implements HttpInterceptor {
 
   constructor(private auth: AuthenticationService) {}
@@ -22,7 +23,8 @@ export class AuthInterceptor implements HttpInterceptor {
     // Clone the request and replace the original headers with
     // cloned headers, updated with the authorization.
     const authReq = req.clone({
-      headers: req.headers.set('Authorization', 'bearer ' + authToken)
+      headers: req.headers.set('Authorization', 'Bearer ' + authToken)
+
               /* what is the difference */
       /*  setHeaders: { Authorization: 'Bearer $(authToken)}   */
 

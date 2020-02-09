@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { LogoComponent } from "./logo/logo.component";
@@ -16,7 +16,6 @@ import { MovieService } from "./movie.service";
 import { MovieApiService } from "./movie-api.service";
 import { ApiService } from "./api.service";
 import { AuthenticationService } from "./authentication.service";
-import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "./auth-interceptor";
 import { SignupLoginComponent } from './signup-login/signup-login.component';
 
@@ -42,6 +41,7 @@ export const httpInterceptorsProviders = [{
     MainComponent,
     SignupLoginComponent
   ],
+  
   imports: [
     BrowserModule, 
     AppRoutingModule, 

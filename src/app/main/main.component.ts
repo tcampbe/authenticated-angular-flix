@@ -15,20 +15,6 @@ export class MainComponent implements OnInit {
     private authService: AuthenticationService
   ){}
 
-  async authenticate(){
-    const user = {
-      username:"test1",
-      password: "test1password"
-    }
-
-    await this.authService.signup(user);
-
-    const response = await this.authService.login(user);
-
-/*     console.log(response.token);
- */
-  }
-
   async ngOnInit() {
     this.myMovieList = this.movieService.getMovieList();
     this.searchResults = this.movieService.getSearchResults();

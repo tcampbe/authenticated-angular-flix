@@ -5,6 +5,7 @@ import { Component, OnInit, Input } from "@angular/core";
   templateUrl: "./hero-button.component.html",
   styleUrls: ["./hero-button.component.css"]
 })
+
 export class HeroButtonComponent implements OnInit {
   @Input() text;
 

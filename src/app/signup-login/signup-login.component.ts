@@ -4,7 +4,7 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from "@angular/router";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
 import { first } from "rxjs/operators";
 import { AuthenticationService } from "../authentication.service";
 import { MovieService } from "../movie.service";
@@ -28,12 +28,9 @@ export class SignupLoginComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService,
     private movieService: MovieService
-  ) /*     private alertSevice:AlertService
-   */ {
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(["/"]);
-    }
-  }
+  )  {console.log("aslfhog");}
+  
+
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       firstName: ["", Validators.required],
@@ -60,8 +57,8 @@ export class SignupLoginComponent implements OnInit {
 
     this.loading = true;
 
-    this.movieService
-      .register(this.registerForm.value)
+    /* this.authenticationService
+      .login(this.registerForm.value)
       .pipe(first())
       .subscribe(
         data => {
@@ -75,6 +72,6 @@ export class SignupLoginComponent implements OnInit {
 
           this.loading = false;
         }
-      );
+      ); */
   }
 }
